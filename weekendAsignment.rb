@@ -54,8 +54,13 @@ class NotesApplication
 			return "#{note_id} was deleted"
 		end
 	end
-	def edit(note_id)
-
+	def edit(note_id, new_content)
+		if @author_notes.has_key(note_id)== true && new_content.length>0
+			@author_notes[note_id]=new_content
+			return "You have successfully edited #{note_id}"
+		else
+			return "Oops! its seems your note ID is wrong or your new content is empty"
+		end
 	end
 
 end
